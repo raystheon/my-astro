@@ -1,0 +1,75 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    run.googleapis.com/client-name: gcloud
+    run.googleapis.com/client-version: 542.0.0
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/operation-id: 770d9094-4983-47f7-9825-41879cd7424d
+    run.googleapis.com/urls: '["https://astro-calculator-service-258592509159.us-central1.run.app","https://astro-calculator-service-uqe3grwlya-uc.a.run.app"]'
+    serving.knative.dev/creator: raymondanguiano83@gmail.com
+    serving.knative.dev/lastModifier: raymondanguiano83@gmail.com
+  creationTimestamp: '2025-10-23T03:24:10.564757Z'
+  generation: 5
+  labels:
+    cloud.googleapis.com/location: us-central1
+  name: astro-calculator-service
+  namespace: '258592509159'
+  resourceVersion: AAZBzFijcn0
+  selfLink: /apis/serving.knative.dev/v1/namespaces/258592509159/services/astro-calculator-service
+  uid: 53bd6f3c-aceb-49b6-a8e2-7a7b54278914
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '20'
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 542.0.0
+        run.googleapis.com/startup-cpu-boost: 'true'
+      labels:
+        client.knative.dev/nonce: zbjdslzbhn
+        run.googleapis.com/startupProbeType: Default
+    spec:
+      containerConcurrency: 80
+      containers:
+      - image: us-central1-docker.pkg.dev/orbital-expanse-475805-k7/astro-repo/astro-calculator:latest
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+        startupProbe:
+          failureThreshold: 1
+          periodSeconds: 240
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 240
+      serviceAccountName: 258592509159-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300
+  traffic:
+  - latestRevision: true
+    percent: 100
+status:
+  address:
+    url: https://astro-calculator-service-uqe3grwlya-uc.a.run.app
+  conditions:
+  - lastTransitionTime: '2025-10-23T05:02:56.504445Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2025-10-23T05:02:52.290195Z'
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2025-10-23T05:02:56.468436Z'
+    status: 'True'
+    type: RoutesReady
+  latestCreatedRevisionName: astro-calculator-service-00005-qng
+  latestReadyRevisionName: astro-calculator-service-00005-qng
+  observedGeneration: 5
+  traffic:
+  - latestRevision: true
+    percent: 100
+    revisionName: astro-calculator-service-00005-qng
+  url: https://astro-calculator-service-uqe3grwlya-uc.a.run.app

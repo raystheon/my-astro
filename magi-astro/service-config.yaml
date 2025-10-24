@@ -1,0 +1,8 @@
+spec:
+  # INSERT THIS BLOCK HERE:
+  traffic:
+  - latest: true
+    percent: 100
+  # END OF INSERTION
+  template:
+    ...
