@@ -1,0 +1,6 @@
+Magi Astro is a modern, light-weight weather application built entirely with the Astro web framework and wrapped by Capacitor. 
+
+Features include:
+- Real-time weather data
+- Custom themes
+- Responsive design for all mobile devices
